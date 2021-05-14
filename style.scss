@@ -1,0 +1,165 @@
+@import url('https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+$dkc: #333;
+$ltc: rgb(231, 229, 229);
+$prc: rgb(69, 173, 187);
+$sdc: rgb(73, 158, 112);
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: 'Arvo', serif;
+  background-color: $ltc;
+  color: $ltc;
+  line-height: 1.6;
+}
+
+h1, h2 {
+  font-weight: 200;
+  line-height: 1.2;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+  padding: 10px;
+  
+  img {
+    width: 40px;
+    margin-left: 10px;
+  }
+
+  span {
+    padding-left: 5px;
+  }
+  
+}
+
+// navbar
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: rgb(80, 79, 79);
+  color: $ltc;
+  width: 100%;
+  height: 70px;
+  opacity: 0.8;
+  position: fixed;
+  ul {
+    display: flex;
+  }
+
+  a{
+    padding: 8px;
+    margin: 0px 10px;
+    color: $prc;
+  }
+
+  a:hover {
+    color: $sdc;
+    border-bottom: solid 1px $ltc;
+  }
+}
+
+// Cabeçalho
+.header {
+  background: url('/img/interrogacao.jpg') no-repeat center center/cover;
+  height: 90vh;
+  position: relative;
+  color: $ltc;
+
+  .conteudo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 100%;
+    color: $prc;
+    padding: 0px 20px;
+
+    h1 {
+      font-size: 55px;
+    }
+
+    h2 {
+      font-size: 23px;
+    }
+  }
+  
+}
+
+.header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+}
+.header * {
+  z-index: 10;
+}
+
+// Páginas
+
+.itens {
+  display: flex;
+  flex-direction: row;
+  padding: 20px;
+  width: 100%;
+  height: 60vh;
+  text-align: center;
+  justify-content: space-between;
+
+  .item-anime{
+    display: flex;
+    align-items: center;
+    background: url('/img/capa.jpg') no-repeat center center/cover;
+    width: 45vw;
+    h3 {
+      font-size: 45px;
+      margin: auto;
+    }
+  }
+  .item-video-game {
+    display: flex;
+    background: url('/img/zelda.jpg') no-repeat center center/cover;
+    width: 48vw;
+    align-items: center;
+    h3 {
+      font-size: 45px;
+      margin: auto;
+    }
+  }
+}
+
+footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: $dkc;
+  height: 100px;
+
+  p {
+    margin: auto;
+    font-size: 23px
+  }
+}
+
