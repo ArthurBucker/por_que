@@ -6,6 +6,16 @@
   margin: 0;
 }
 
+.dark {
+  background-color: #333;
+  color: #e7e5e5;
+}
+
+.light {
+  background-color: #e7e5e5;
+  color: #333;
+}
+
 body {
   font-family: 'Arvo', serif;
   background-color: #e7e5e5;
@@ -60,7 +70,7 @@ ul {
   background-color: #504f4f;
   color: #e7e5e5;
   width: 100%;
-  height: 70px;
+  height: 60px;
   opacity: 0.8;
   position: fixed;
 }
@@ -72,14 +82,18 @@ ul {
 }
 
 .navbar a {
-  padding: 8px;
+  padding: 6px;
   margin: 0px 10px;
-  color: #45adbb;
+  color: #e7e5e5;
 }
 
 .navbar a:hover {
   color: #499e70;
   border-bottom: solid 1px #e7e5e5;
+}
+
+.separador {
+  border-right: solid 1px #e7e5e5;
 }
 
 .header {
@@ -114,7 +128,7 @@ ul {
 }
 
 .header .conteudo h2 {
-  font-size: 23px;
+  font-size: 27px;
 }
 
 .header::before {
@@ -131,8 +145,41 @@ ul {
   z-index: 10;
 }
 
+.auto-typing::after {
+  content: '';
+  border-left: 1px solid #45adbb;
+  margin-left: 5px;
+  -webkit-animation: piscar 0.5s infinite ease;
+          animation: piscar 0.5s infinite ease;
+}
+
+@-webkit-keyframes piscar {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes piscar {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 .anime {
   background: url("./img/capa-nova.jpg") no-repeat center center/cover;
+  height: 100vh;
+  position: relative;
+  color: #e7e5e5;
+}
+
+.games {
+  background: url("./img/smash.png") no-repeat center center/cover;
   height: 100vh;
   position: relative;
   color: #e7e5e5;
@@ -187,8 +234,7 @@ ul {
   margin: auto;
 }
 
-.discussao-anime {
-  background-color: #45adbb;
+.discussao {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -202,27 +248,43 @@ ul {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  color: #e7e5e5;
   width: 100%;
   height: 60vh;
 }
 
-.discussao-anime img {
+.discussao img {
   max-width: 80%;
   max-height: 100%;
   width: 40vw;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 
-.discussao-anime p {
+.discussao p {
   padding: 10px;
   margin: 0 60px 0 0;
   width: 40vw;
   text-align: justify;
 }
 
-.anime-generos {
+.ani {
+  background-color: #45adbb;
+  color: #e7e5e5;
+}
+
+.game {
+  background-color: #499e70;
+  color: #333;
+}
+
+.generos {
   background-color: #e7e5e5;
   color: #333;
+}
+
+.generos-g {
+  background-color: #333;
+  color: #e7e5e5;
 }
 
 .txt-generos {
@@ -243,8 +305,8 @@ ul {
 .container {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (minmax(400px, 1fr))[auto-fit];
-      grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  -ms-grid-columns: (minmax(350px, 1fr))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   gap: 1.5rem;
   text-align: center;
 }
@@ -275,7 +337,6 @@ ul {
   pointer-events: none;
   -webkit-transition: 0.25s ease-out;
   transition: 0.25s ease-out;
-  overflow: auto;
 }
 
 .modal.open {
@@ -283,39 +344,131 @@ ul {
   pointer-events: all;
 }
 
+.caixa {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-top: 200px;
+  text-align: center;
+}
+
 .modal-img {
-  position: fixed;
-  height: 70%;
-  top: 40%;
-  right: 60%;
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+  margin-left: 80px;
   -webkit-transform: scale(1);
           transform: scale(1);
+  max-height: 200px;
+  margin-top: 20px;
   -webkit-transition: all 0.25s ease-out;
   transition: all 0.25s ease-out;
 }
 
 .modal-img.open {
-  -webkit-transform: scale(1.5);
-          transform: scale(1.5);
+  -webkit-transform: scale(1.3);
+          transform: scale(1.3);
 }
 
 .legenda {
   color: #e7e5e5;
   font-size: 1.2rem;
   position: relative;
-  text-align: justify;
-  top: 30%;
-  left: 55%;
-  width: 550px;
+  text-align: center;
+  width: 50vw;
+  margin-right: 20px;
 }
 
 .nomenclatura {
   color: #e7e5e5;
   font-size: 3rem;
-  position: fixed;
+  position: relative;
+  top: 13%;
+}
+
+.nomenclatura h2 {
   text-align: center;
+}
+
+.g1 {
+  font-size: 2.5;
+}
+
+.recomendacoes {
+  color: #333;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: (minmax(350px))[auto-fit];
+      grid-template-rows: repeat(auto-fit, minmax(350px));
+  text-align: center;
+}
+
+.recomendacoes img {
+  width: 35vw;
+  height: 33vh;
+  margin: 20px;
+  border-radius: 10px;
+}
+
+.recomendacoes h3 {
+  color: #333;
+  font-size: 30px;
+}
+
+.recomendacoes p {
+  width: 40vw;
+  margin: 20px;
   top: 10%;
-  left: 43%;
+}
+
+.intro-rec {
+  background: #499e70;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  color: #333;
+  text-align: center;
+  padding: 20px;
+  height: 150px;
+}
+
+.intro-rec h2 {
+  font-size: 35px;
+}
+
+.intro-rec p {
+  font-size: 23px;
+}
+
+.g2 {
+  background-color: #45adbb;
+  color: #e7e5e5;
+}
+
+.rec1, .rec2, .rec3 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  background: #499e70;
+}
+
+.rec1 img, .rec2 img, .rec3 img {
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+}
+
+.g3 {
+  background-color: #45adbb;
+  color: #e7e5e5;
+}
+
+.branco {
+  background: #e7e5e5;
+  height: 45px;
 }
 
 footer {
@@ -330,12 +483,173 @@ footer {
       -ms-flex-align: center;
           align-items: center;
   background-color: #333;
-  height: 100px;
-  margin-top: 20px;
+  height: 60px;
+  margin-top: 40px;
 }
 
 footer p {
   margin: auto;
   font-size: 23px;
+}
+
+.footer-alt {
+  margin-top: 0px;
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    height: 110px;
+    width: 100vw;
+  }
+  .navbar .logo {
+    margin-top: 10px;
+    padding: 0;
+  }
+  .navbar a {
+    padding: 0;
+  }
+  .navbar ul {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    width: 80vw;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .discussao {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    height: 110vh;
+  }
+  .discussao h1 {
+    text-align: center;
+    margin-top: 10px;
+  }
+  .discussao p {
+    width: 80vw;
+    height: 80vh;
+    padding: 0px;
+    margin: 0px;
+    margin-top: 10px;
+    text-align: center;
+  }
+  .discussao img {
+    width: 40vw;
+    margin-top: 10px;
+  }
+  .ani img {
+    height: 30vh;
+    width: 70vw;
+    margin-right: 50px;
+  }
+  .txt-generos {
+    margin: 0 7px;
+    text-align: center;
+  }
+  .txt-generos h2 {
+    padding-top: 10px;
+    font-size: 25px;
+  }
+  .txt-generos p {
+    margin-top: 10px;
+    font-size: 17px;
+  }
+  .container {
+    height: 350vh;
+    font-size: 20px;
+    margin-top: 10px;
+  }
+  .container img {
+    width: 300px;
+  }
+  .container h5 {
+    text-decoration: underline;
+  }
+  .um {
+    margin-top: 40px;
+    height: 38vh;
+  }
+  .um p {
+    margin-top: 5px;
+  }
+  .dois {
+    height: 38vh;
+  }
+  .anime1 h3 {
+    color: #e7e5e5;
+  }
+  .jogo1 h3 {
+    color: #333;
+  }
+  .rec1, .rec2, .rec3 {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -ms-flex-line-pack: center;
+        align-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .rec1 img, .rec2 img, .rec3 img {
+    width: 300px;
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+  }
+  .rec1 p, .rec2 p, .rec3 p {
+    width: 80vw;
+    font-size: 17px;
+  }
+  .modal {
+    overflow: auto;
+  }
+  .caixa {
+    display: block;
+    margin-top: 100px;
+  }
+  .modal-img {
+    position: relative;
+    width: 200px;
+    max-width: 400px;
+    height: 100px;
+    margin-left: 0px;
+    left: 0%;
+    top: 10%;
+  }
+  .nomenclatura {
+    top: 0%;
+    font-size: 20px;
+    left: 0;
+    margin-top: 30px;
+    position: relative;
+  }
+  .nomenclatura h2 {
+    text-align: center;
+  }
+  .legenda {
+    position: relative;
+    left: 0;
+    top: 20%;
+    width: 100vw;
+    padding: 10px;
+  }
+  .legenda p {
+    text-align: center;
+  }
+  .modal-img.open {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
 }
 /*# sourceMappingURL=style.css.map */

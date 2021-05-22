@@ -11,6 +11,16 @@ $sdc: rgb(73, 158, 112);
   margin: 0;
 }
 
+.dark {
+  background-color: $dkc;
+  color: $ltc;
+}
+
+.light {
+  background-color: $ltc;
+  color: $dkc;
+}
+
 body {
   font-family: 'Arvo', serif;
   background-color: $ltc;
@@ -57,7 +67,7 @@ ul {
   background-color: rgb(80, 79, 79);
   color: $ltc;
   width: 100%;
-  height: 70px;
+  height: 60px;
   opacity: 0.8;
   position: fixed;
   ul {
@@ -65,15 +75,19 @@ ul {
   }
 
   a{
-    padding: 8px;
+    padding: 6px;
     margin: 0px 10px;
-    color: $prc;
+    color: $ltc;
   }
 
   a:hover {
     color: $sdc;
     border-bottom: solid 1px $ltc;
   }
+}
+
+.separador {
+  border-right: solid 1px $ltc;
 }
 
 // Cabeçalho Início
@@ -98,7 +112,7 @@ ul {
     }
 
     h2 {
-      font-size: 23px;
+      font-size: 27px;
     }
   }
   
@@ -117,6 +131,23 @@ ul {
   z-index: 10;
 }
 
+//Auto typewriting
+.auto-typing::after {
+  content:'';
+  border-left: 1px solid $prc;
+  margin-left: 5px;
+  animation: piscar 0.5s infinite ease;
+}
+
+@keyframes piscar {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 
 // Cabeçalho Anime
 .anime {
@@ -124,6 +155,13 @@ ul {
   height: 100vh;
   position: relative;
   color: $ltc;}
+
+.games {
+  background: url('./img/smash.png') no-repeat center center/cover;
+  height: 100vh;
+  position: relative;
+  color: $ltc;}
+  
 
 // Páginas
 
@@ -159,19 +197,18 @@ ul {
 }
 
 //Página Anime
-.discussao-anime {
-  background-color: $prc;
+.discussao {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  color: $ltc;
   width: 100%;
   height: 60vh;
   img {
     max-width: 80%;
     max-height: 100%;
     width: 40vw;
+    object-fit: contain;
   }
 
   p {
@@ -182,12 +219,27 @@ ul {
   }
 }
 
+.ani {
+  background-color: $prc;
+  color: $ltc;
+}
+
+.game {
+  background-color: $sdc;
+  color: $dkc;
+}
+
 
 //Generos
 
-.anime-generos {
+.generos {
   background-color: $ltc;
   color: $dkc;
+}
+
+.generos-g {
+  background-color: $dkc;
+  color: $ltc;
 }
 
 .txt-generos {
@@ -207,7 +259,7 @@ ul {
 
 .container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   gap: 1.5rem;
   text-align: center;
   img {
@@ -239,7 +291,7 @@ ul {
   opacity: 0;
   pointer-events: none;
   transition: 0.25s ease-out;
-  overflow: auto;
+  
 }
 
 .modal.open {
@@ -247,37 +299,117 @@ ul {
   pointer-events: all;
 }
 
+.caixa {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 200px;
+  text-align: center;
+}
+
 .modal-img {
-  position: fixed;
-  height: 70%;
-  top: 40%;
-  right: 60%;
+  align-self: flex-start;
+  margin-left: 80px;
   transform:scale(1);
+  max-height: 200px;
+  margin-top: 20px;
   transition: all 0.25s ease-out;
-  
 }
 
 .modal-img.open {
-  transform: scale(1.5)
+  transform: scale(1.3)
 }
 
 .legenda {
   color: $ltc;
   font-size: 1.2rem;
   position: relative;
-  text-align: justify;
-  top: 30%;
-  left: 55%;
-  width: 550px;
+  text-align: center;
+  width: 50vw;
+  margin-right: 20px;
 }
+
+
 
 .nomenclatura {
   color: $ltc;
   font-size: 3rem;
-  position: fixed;
+  position: relative;
+  top: 13%;
+  h2 {
+    text-align: center;
+  }
+}
+
+.g1 {
+  font-size: 2.5;
+  
+}
+
+.recomendacoes {
+  color: $dkc;
+  display: grid;
+  grid-template-rows: repeat(auto-fit, minmax(350px)) ;
   text-align: center;
-  top: 10%;
-  left: 43%;
+  img {
+    width: 35vw;
+    height: 33vh;
+    margin: 20px;
+    border-radius: 10px;
+  }
+
+  h3 {
+    color: $dkc;
+    font-size: 30px;
+  }
+  
+  p {
+    width: 40vw;
+    margin: 20px;
+    top: 10%;
+  }
+}
+
+.intro-rec {
+  background: $sdc;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  color: $dkc;
+  text-align: center;
+  padding: 20px;
+  height: 150px;
+
+  h2 {
+    font-size: 35px;
+  }
+
+  p {
+    font-size: 23px;
+  }
+}
+
+.g2 {
+  background-color: $prc;
+  color: $ltc;
+}
+
+.rec1, .rec2, .rec3 {
+  display: flex;
+  justify-content: space-between;
+  background: $sdc;
+  img {
+    align-self: flex-start;
+  }
+
+}
+
+.g3 {
+  background-color: $prc;
+  color: $ltc;
+}
+
+.branco {
+  background: $ltc;
+  height: 45px;
 }
 
 footer {
@@ -285,10 +417,187 @@ footer {
   flex-direction: column;
   align-items: center;
   background-color: $dkc;
-  height: 100px;
-  margin-top: 20px;
+  height: 60px;
+  margin-top: 40px;
   p {
     margin: auto;
     font-size: 23px
   }
 }
+
+.footer-alt {
+  margin-top: 0px;
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    height: 110px;
+    width: 100vw;
+    .logo {
+      margin-top: 10px;
+      padding: 0;
+    }
+
+    a {
+      padding: 0;
+    }
+    
+    ul {
+      flex-wrap: wrap;
+      width: 80vw;
+      justify-content: center;
+    }
+  }
+
+  .discussao {
+    flex-direction: column;
+    height: 110vh;
+
+    h1 {
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    p {
+      width: 80vw;
+      height: 80vh;
+      padding: 0px;
+      margin: 0px;
+      margin-top: 10px;
+      text-align: center;
+    }
+
+    img {
+      width: 40vw;
+      margin-top: 10px;
+    }
+  }
+
+  .ani {
+    img {
+      height: 30vh;
+      width: 70vw;
+      margin-right: 50px;
+    }
+  }
+  
+ 
+  .txt-generos {
+    margin: 0 7px ;
+    text-align: center;
+    
+    h2 {
+      padding-top: 10px;
+      font-size: 25px;
+    }
+
+    p {
+      margin-top: 10px;
+      font-size: 17px;
+    }
+  }
+
+  .container {
+    height: 350vh;
+    font-size: 20px;
+    margin-top: 10px;
+    
+    img {
+      width: 300px;
+    }
+
+    h5 {
+      text-decoration: underline;
+    }
+  }
+
+  .um {
+    margin-top: 40px;
+    height: 38vh;
+
+    p {
+      margin-top: 5px;
+    }
+  }
+
+  .dois {
+    height: 38vh;
+  }
+
+  .anime1 {
+    h3 {
+      color: $ltc;
+    }
+  }
+
+  .jogo1 {
+    h3 {
+      color: $dkc;
+    }
+  }
+
+  .rec1,.rec2,.rec3 {
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+
+    img {
+      width: 300px;
+      align-self: center;
+    }
+
+    p {
+      width: 80vw;
+      font-size: 17px;
+    }
+
+  }
+
+  .modal {
+    overflow: auto;
+  }
+
+  .caixa {
+    display: block;
+    margin-top: 100px;
+  }
+
+  .modal-img {
+    position: relative;
+    width: 200px;
+    max-width: 400px;
+    height: 100px;
+    margin-left: 0px;
+    left: 0%;
+    top: 10%;
+  }
+
+  .nomenclatura {
+    top: 0%;
+    font-size: 20px;
+    left: 0;
+    margin-top: 30px;
+    position: relative;
+    h2 {
+      text-align: center;
+    }
+  }
+
+  .legenda {
+    position: relative;
+    left: 0;
+    top: 20%;
+    width: 100vw;
+    padding: 10px;
+    p {
+      text-align: center;
+    }
+  }
+  
+  .modal-img.open {
+    transform: scale(1);
+  }
+}
+
