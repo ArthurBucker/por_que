@@ -173,27 +173,27 @@ ul {
   height: 60vh;
   text-align: center;
   justify-content: space-between;
+  color: #333;
 
-  .item-anime{
-    display: flex;
-    align-items: center;
-    background: url('./img/capa.jpg') no-repeat center center/cover;
-    width: 45vw;
-    h3 {
-      font-size: 45px;
-      margin: auto;
-    }
+  .item-anime, .item-video-game {
+    overflow: hidden;
   }
-  .item-video-game {
-    display: flex;
-    background: url('./img/zelda.jpg') no-repeat center center/cover;
-    width: 48vw;
-    align-items: center;
-    h3 {
-      font-size: 45px;
-      margin: auto;
-    }
+
+  h3 {
+    margin-bottom: 10px;
   }
+
+  img {
+   width: 45vw;
+   height: 50vh;
+   border-radius: 50%;
+   transition: all 0.3s ease-in-out; 
+ }
+
+ img:hover {
+   transform: scale(1.1);
+   border-radius: 20px;
+ }
 }
 
 //Página Anime
@@ -262,18 +262,22 @@ ul {
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   gap: 1.5rem;
   text-align: center;
+  
   img {
     width: 400px;
     height: 200px;
     border-radius: 17px;
+    transition: all 0.25s ease-in-out;
   }
 
   img:hover {
     cursor: pointer;
-    opacity: 0.7;
+    transform: scale(1.05);
   }
   
 }
+
+
 
 .img-container p {
   display: none;
@@ -316,6 +320,9 @@ ul {
 }
 
 .modal-img.open {
+  transform: scale(1.3)
+}
+.modal-img.open:hover {
   transform: scale(1.3)
 }
 
@@ -377,15 +384,12 @@ ul {
   color: $dkc;
   text-align: center;
   padding: 20px;
-  height: 150px;
+  height: 100px;
 
   h2 {
     font-size: 35px;
   }
 
-  p {
-    font-size: 23px;
-  }
 }
 
 .g2 {
@@ -438,6 +442,7 @@ footer {
 }
 
 @media (max-width: 768px) {
+  
   .navbar {
     flex-direction: column;
     height: 110px;
@@ -455,6 +460,20 @@ footer {
       flex-wrap: wrap;
       width: 80vw;
       justify-content: center;
+    }
+  }
+
+  .itens {
+    flex-direction: column;
+
+    .item-anime, .item-video-game {
+      overflow: visible;
+    }
+
+    img {
+      border-radius: 40%;
+      width: 50vw;
+      height: 25vh;
     }
   }
 
@@ -519,6 +538,8 @@ footer {
       text-decoration: underline;
     }
   }
+
+  
 
   .um {
     margin-top: 40px;
@@ -606,6 +627,9 @@ footer {
   
   .modal-img.open {
     transform: scale(1);
+  }
+  .intro-rec {
+    height: 100px;
   }
 }
 
